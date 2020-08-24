@@ -1,0 +1,17 @@
+{% extends "courses/layout.html" %}
+
+{% load course_extras %}
+
+{% block title %} {{ step.title }}-{{ step.course.Title }}{% endblock %}
+
+{% block content %}
+ <article>
+     <div class="row columns">
+        <h2><a href="{% url 'courses:detail' pk=step.course.pk %}">{{ step.course.Title }}</a></h2>
+        <h3>{{ step.title }}</h3>
+        Quiz Questions here.
+
+     </div>
+     
+ </article>
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends "layout.html" %}
+
+{% block title %} suggest idea {% endblock %}
+
+{% block content %}
+<div class="container">
+    <form action="" method="Post">
+        {{ form.as_p }}
+        {% csrf_token %}
+        <button type="submit" class="btn btn-primary">Submit</button>
+ </form>
+    
+</div>
+
+{% endblock %}

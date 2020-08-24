@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+{% load course_extras %}
+
+{% block title %}{{ course.Title }}{% endblock %}
+
+{% block content %}
+<article>
+    <h2>{{ course.Title }}</h2>
+    {{ course.Description|markdown_to_html }}
+
+    <p>There are {{ course.step_set.count}} the step{{ course.step_set.count|pluralize }} in this course: {{ course.step_set.all|join:", "}}</p>
+
+    <section>
+        {% for step in steps %}
+        <h3>
+            <a href="{{ step.get_absolute_url }}">{{ step.title }}</a>
+        </h3>
+        {{ step.description }}
+        {% endfor %}
+    </section>
+
+</article>
+{% endblock %}
